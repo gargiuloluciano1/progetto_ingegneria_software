@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lores\\Desktop\\progetto_ingegneria_software\\progetto_ingegneria_software.csproj": {}
+    "/app/progetto_ingegneria_software.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lores\\Desktop\\progetto_ingegneria_software\\progetto_ingegneria_software.csproj": {
+    "/app/progetto_ingegneria_software.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lores\\Desktop\\progetto_ingegneria_software\\progetto_ingegneria_software.csproj",
+        "projectUniqueName": "/app/progetto_ingegneria_software.csproj",
         "projectName": "progetto_ingegneria_software",
-        "projectPath": "C:\\Users\\lores\\Desktop\\progetto_ingegneria_software\\progetto_ingegneria_software.csproj",
-        "packagesPath": "C:\\Users\\lores\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lores\\Desktop\\progetto_ingegneria_software\\obj\\",
+        "projectPath": "/app/progetto_ingegneria_software.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/app/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lores\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.125/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
