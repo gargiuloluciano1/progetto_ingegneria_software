@@ -1,0 +1,40 @@
+SPECIFICA DEI REQUISITI: PRIMA STESURA
+
+Si mira a progettare un software per la gestione di un comprensorio sciistico, che realizza le seguenti funzionalità:
+- gestione del parcheggio:
+	- il parcheggio è a pagamento.
+	- il parcheggio ha una capacità massima (che verrà decisa in un file di configurazione).
+	- le persone pagano il parcheggio attraverso l'applicazione, inserendo la durata della sosta e la targa della macchina.
+	- la sosta ha un costo orario, se la sosta si protrae oltre le 16:00, è possibile sostare fino alle 7:00 della giornata successiva.
+	- il pagamento massimo per la sosta è di 6,00 €.
+	- se il numero di veicoli in sosta supera una certa soglia, si attiva la prima navetta, ogni aggiunta di tot altri veicoli in sosta fa attivare un'altra navetta.
+	- le navette finiscono di operare dopo le ore 16:00
+	- se tot macchine terminano la sosta, una navetta smette di operare, e così via finchè non si torna alla soglia nominata prima.
+
+- gestione della vendita degli skipass:
+	- esistono diversi tipi di skipass: giornaliero, due/tre/cinque giornate, settimanale, mensile e stagionale.
+	- il prezzo dello skipass varia a seconda del tipo di skipass.
+	- il prezzo dello skipass giornaliero varia a seconda che il giorno in cui viene acquistato sia feriale o festivo.
+	- l'addetto alla vendita degli skipass vende gli skipass tramite un pannello di controllo che semplifica la vendita.
+	- ogni vendita di skipass è registrata con -tipo-quantità-prezzototale-data-
+
+- assegnazione delle lezioni ai maestri di sci:
+	- l'utente può prenotare una lezione di sci tra quelle disponibili, inserendo le sue generalità e pagando
+	- ogni maestro di sci può accedere ad una pagina che mostra le lezioni che tutti i maestri di sci devono svolgere
+	- va deciso un algoritmo che gestisce i maestri di sci (solitamente è gestito con politica FIFO)
+	- va simulato il pagamento (?)
+
+- monitoraggio della fila presente a ciascuna seggiovia:
+	- quando uno skipass attiva un tornello viene registrato il passaggio di un utente (necessariamente simulato)
+	- il colore della seggiovia varia a seconda del valore passaggiutente/minuto
+	- il colore della seggiovia viene aggiornato ogni due minuti
+
+- segnalazione di incidenti ai responsabili del soccorso:
+	- in caso di infortunio, gli utenti segnalano sull'applicazione, tramite un'apposito sistema, una descrizione dell'incidente e il luogo dell'incidente
+	- i soccorritori accedono ad un pannello che visualizza gli incidenti che sono stati segnalati dagli utenti.
+
+- gestione di truffe:
+	- bisogna rendere non possibile il passaggio ad un tornello se lo skipass non ha validità in quel giorno.
+	- l'utilizzo di uno skipass valido in istanti di tempo poco distanti deve essere bloccato
+
+
