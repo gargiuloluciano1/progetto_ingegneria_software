@@ -1,20 +1,33 @@
-#make a better script
-NETWORK='ing-net'
+#!/usr/bin/env bash
 
-while getopts :br OPTION; do
-    if [ "${OPTION}" = 'b' ];then
-	docker network rm "${NETWORK}"
-	docker image rm ing/primo
-	docker network create "${NETWORK}" --subnet 10.0.0.0/24
-	docker build -t ing/primo .
-    elif [ "${OPTION}" = 'r' ];then
-	docker run --rm -ti -e DISPLAY=$DISPLAY \
-	    --mount type=bind,src="./Codice_Sorgente",dst="/app" \
-	    --network "${NETWORK}" \
-	    --ip 10.0.0.2 \
-	    -v /tmp/.X11-unix:/tmp/.X11-unix -p 20:2222 ing/primo 
-    fi
-done
-if [ "$OPTION" = "?" ];then
-    echo 'usage: -b to build -r to run'
+# run as sudo
+#
+
+DOCKER_BASE_IMAGE=ingsof-image
+DOCKER_BUILD_IMAGE=ingsof-build
+
+# create base image
+function create_base_image {
+cat <<EOF | docker build -t ${DOCKER_BASE_IMAGE} -
+FROM ubuntu:22.04 AS image
+RUN apt-get update && apt-get install -y openjdk-21-jre openjdk-21-jdk
+RUN mkdir app
+RUN mkdir app/build
+EOF
+}
+
+function delete-base-image() {
+docker image rm ${DOCKER_BASE_IMAGE}
+}
+
+# if image exists
+if ! docker image ls | grep ${DOCKER_BASE_IMAGE} >/dev/null; then
+    create_base_image
+else
+    echo 'base image exists already'
 fi
+
+if docker image ls | grep ${DOCKER_BUILD_IMAGE} >/dev/null; then
+    docker image rm ${DOCKER_BUILD_IMAGE}
+fi
+docker build -t ${DOCKER_BUILD_IMAGE} .

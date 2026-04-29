@@ -1,10 +1,16 @@
 # Progetto di Ingegneria Del Software
 
-## Appunti per il docker
-Il docker runna il codice presente in .Codice\_Sorgente/
+# deps
+java 21
+javafx 21
 
-|               |               |
-|---------------|---------------|
-| image         | ubuntu:22.04  |
-| dependencies  | dotnet-sdk-8  |
-| dependencies  | Avalonia      |
+# appunti sul docker 
+ Per risparmiare tempo di build ho diviso l'immagine in due, ingsof-image e ingsof-build.
+ __ingsof-image__ dovrebbe settare solo l'environment (pacchetti necessari ecc..) 
+ __ingsof-build__ copia ./src e ./modules e compila il codice sorgente
+
+ più avanti si potrebbe fare una terza per il solo runtime, dovrebbe far risparmiare spazio
+
+ Per build e run del codice
+`sudo ./build.sh`
+`sudo ./app`
