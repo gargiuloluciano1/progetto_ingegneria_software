@@ -1,9 +1,13 @@
-FROM ubuntu:22.04
+FROM ingsof-image AS build 
+ENV PATH_JAVA_FX=/app/modules/javafx-sdk-21.0.11/lib
+ENV MODULES=javafx.controls
+ENV BUILD=/app/build
 
-# TODO 
-# need to setup ssh daemon on docker, enable x11 forwarding and start application
-RUN apt-get update && apt-get install -y dotnet-sdk-8.0
-RUN apt-get install -y x11-apps
-
+RUN mkdir /app/src
+RUN mkdir /app/modules
 WORKDIR /app
-ENTRYPOINT ["dotnet", "run"]
+RUN --mount=type=bind,src=src,target=/app/src \
+	   --mount=type=bind,src=modules,target=/app/modules \
+	   javac -d ${BUILD} -p ${PATH_JAVA_FX} --add-modules ${MODULES} src/java/HelloWorld.java
+
+CMD java -cp ${BUILD}  -p ${PATH_JAVA_FX} --add-modules ${MODULES} HelloWorld
