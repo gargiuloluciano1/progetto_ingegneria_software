@@ -30,4 +30,5 @@ fi
 if docker image ls | grep ${DOCKER_BUILD_IMAGE} >/dev/null; then
     docker image rm ${DOCKER_BUILD_IMAGE}
 fi
+
 docker build -t ${DOCKER_BUILD_IMAGE} .

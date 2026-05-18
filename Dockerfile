@@ -8,6 +8,6 @@ RUN mkdir /app/modules
 WORKDIR /app
 RUN --mount=type=bind,src=src,target=/app/src \
 	   --mount=type=bind,src=modules,target=/app/modules \
-	   javac -d ${BUILD} -p ${PATH_JAVA_FX} --add-modules ${MODULES} src/java/HelloWorld.java
+	   javac -d ${BUILD} -p ${PATH_JAVA_FX} --add-modules ${MODULES} src/java/LoginPane.java src/java/RegisterPane.java src/java/HelloWorld.java
 
 CMD java -cp ${BUILD}  -p ${PATH_JAVA_FX} --add-modules ${MODULES} HelloWorld
