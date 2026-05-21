@@ -1,22 +1,22 @@
+
+import model.Model;
+import controller.Controller;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.event.*;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+//import javafx.scene.layout.StackPane;
+import view.*;
 import javafx.stage.Stage;
  
 public class HelloWorld extends Application {
+    private final int WIDTH  = 300; 
+    private final int HEIGHT = 250;
+
     public static void main(String[] args) {
         launch(args);
-	// login page closed a new one appears
-	Stage stage = new Stage();
-	Parent root = new RegisterPane();
-	stage.setScene(new Scene(root, 300, 250));
-
-	//TODO add event handling management
-	stage.addEventHandler();
     }
     
     @Override
@@ -34,9 +34,23 @@ public class HelloWorld extends Application {
         });
         
 	*/
-        Parent root = new LoginPane();
-        //root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+	Model model = new Model();
+	Controller controller = new Controller();
+
+        Parent root = new LoginPane(controller);
+        primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
+
+	// STAGE Event Handling 
+	//handle event
+	primaryStage.addEventFilter(UserEvent.ANY, e -> {
+	    if (e.getEventType() == UserEvent.LOGIN_SUCCEDED) {
+		System.out.println("Login Succeded!!!");
+		primaryStage.setScene(new Scene(new RegisterPane(), WIDTH, HEIGHT));
+	    } else {
+		System.out.println("Login Failed");
+	    }
+	});
+
         primaryStage.show();
     }
 }
