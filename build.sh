@@ -11,8 +11,6 @@ function create_base_image {
 cat <<EOF | docker build -t ${DOCKER_BASE_IMAGE} -
 FROM ubuntu:22.04 AS image
 RUN apt-get update && apt-get install -y openjdk-21-jre openjdk-21-jdk
-RUN mkdir app
-RUN mkdir app/build
 EOF
 }
 
@@ -30,5 +28,4 @@ fi
 if docker image ls | grep ${DOCKER_BUILD_IMAGE} >/dev/null; then
     docker image rm ${DOCKER_BUILD_IMAGE}
 fi
-
 docker build -t ${DOCKER_BUILD_IMAGE} .

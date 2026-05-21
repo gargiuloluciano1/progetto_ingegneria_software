@@ -14,3 +14,9 @@ javafx 21
  Per build e run del codice
 `sudo ./build.sh`
 `sudo ./app`
+
+# funzionalita implementate
+Per il momento:
+pagina di login
+pagina di registrazione
+userdatabase  
