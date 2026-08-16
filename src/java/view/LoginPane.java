@@ -12,29 +12,45 @@ public class LoginPane extends GridPane {
 
     public LoginPane(Controller controller) {
 	super();
-	// DEBUG
 	this.controller = controller;
 
-	setGridLinesVisible(true);
+	this.getStyleClass().add("login-card");
+	this.setHgap(10);
+	this.setVgap(15);
+	this.setAlignment(javafx.geometry.Pos.CENTER);
+
 	Label lblUsername = new Label("Username");
+	lblUsername.getStyleClass().add("login-subtitle");
 	TextField tfUsername = new TextField();
+	tfUsername.setPromptText("Username");
 
 	Label lblPassword = new Label("Password");
+	lblPassword.getStyleClass().add("login-subtitle");
 	TextField tfPassword = new TextField();
+	tfPassword.setPromptText("Password");
 
 	Button btnRegister = new Button("Register");
-	Button btnLogin = new Button("Login");
+	btnRegister.getStyleClass().add("btn-secondary");
 
-	// Event Management
+	Button btnLogin = new Button("Login");
+	btnLogin.getStyleClass().add("btn-login");
+
 	btnLogin.setOnAction( e->{ 
 	    if (controller.checkCredentials(tfUsername.getText(), tfPassword.getText()) == 1) {
-		this.fireEvent(new UserEvent(UserEvent.LOGIN_SUCCEDED));
-	    }
+			this.fireEvent(new UserEvent(UserEvent.LOGIN_SUCCEDED));
+	    }else{
+			this.fireEvent(new UserEvent(UserEvent.LOGIN_FAILED));
+		}
 	});
 
-	// col, row
-	this.add(lblUsername, 0, 1);this.add(tfUsername, 1, 1);
-	this.add(lblPassword, 0, 2);this.add(tfPassword, 1, 2);
-	this.add(btnRegister, 0, 3);this.add(btnLogin, 1, 3);
+	btnRegister.setOnAction( e->{ 
+	    
+		this.fireEvent(new UserEvent(UserEvent.REGISTRATION));
+	    
+	});
+
+	this.add(lblUsername, 0, 1); this.add(tfUsername, 1, 1);
+	this.add(lblPassword, 0, 2); this.add(tfPassword, 1, 2);
+	this.add(btnRegister, 0, 3); this.add(btnLogin, 1, 3);
     }
 }

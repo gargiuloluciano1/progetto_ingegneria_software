@@ -9,6 +9,10 @@ public class UserEvent extends Event {
 
     public static final EventType<UserEvent> LOGIN_FAILED = new EventType<>(ANY, "LOGIN_FAILED");
 
+    public static final EventType<UserEvent> REGISTRATION = new EventType<>(ANY, "NEW_REGISTRATION_REQUEST");
+    
+    public static final EventType<UserEvent> REGISTRATION_SUCCEDED = new EventType<>(ANY, "REGISTRATION_SUCCEDED");
+
     public UserEvent(EventType<? extends Event> eventType) {
         super(eventType);
     }
