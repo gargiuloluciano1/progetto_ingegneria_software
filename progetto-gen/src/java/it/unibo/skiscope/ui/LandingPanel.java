@@ -69,11 +69,11 @@ public class LandingPanel extends JPanel {
         eyebrow.setFont(UiTheme.body(12, true));
         eyebrow.setAlignmentX(0f);
 
-        JLabel h1a = new JLabel("La montagna,");
+        JLabel h1a = new JLabel("Ogni funzionalità,");
         h1a.setForeground(Color.WHITE);
         h1a.setFont(UiTheme.display(42));
         h1a.setAlignmentX(0f);
-        JLabel h1b = new JLabel("gestita in un tocco.");
+        JLabel h1b = new JLabel("a portata di mano.");
         h1b.setForeground(UiTheme.ICE);
         h1b.setFont(UiTheme.display(42));
         h1b.setAlignmentX(0f);
@@ -141,7 +141,7 @@ public class LandingPanel extends JPanel {
         grid.setOpaque(false);
         grid.add(trailCard("Parcheggio", "Prenota e paga la sosta in una delle 4 aree di accesso.",
                 UiTheme.PINE, "parcheggio"));
-        grid.add(trailCard("Skipass", "Acquista in pochi passaggi e ricevi il codice QR.",
+        grid.add(trailCard("Skipass", "Acquista lo Skipass e ricevi il codice QR.",
                 UiTheme.SUN, "skipass"));
         grid.add(trailCard("Lezioni", "Prenota una lezione singola o di gruppo con un maestro.",
                 UiTheme.ICE_DARK, "lezioni"));

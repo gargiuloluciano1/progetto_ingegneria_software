@@ -114,7 +114,7 @@ public class ClienteHomePanel extends JPanel {
         }
         boolean attiva = new GestioneStagioneController().isStagioneAttiva();
         avvisoStagione.setVisible(!attiva);
-        avvisoStagione.setText("Il comprensorio e' fuori stagione: le operazioni sono disabilitate.");
+        avvisoStagione.setText("Il comprensorio è fuori stagione: le operazioni sono disabilitate.");
 
         refreshTabContent(tabs.getSelectedIndex());
         revalidate();

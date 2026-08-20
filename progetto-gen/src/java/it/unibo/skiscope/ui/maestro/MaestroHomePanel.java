@@ -84,7 +84,7 @@ public class MaestroHomePanel extends JPanel {
         }
         boolean attiva = new GestioneStagioneController().isStagioneAttiva();
         avvisoStagione.setVisible(!attiva);
-        avvisoStagione.setText("Fuori stagione: non e' possibile inserire nuove disponibilita'.");
+        avvisoStagione.setText("Fuori stagione: non è possibile inserire nuove disponibilità.");
 
         content.removeAll();
         content.add(buildFormColumn(attiva));
@@ -128,7 +128,7 @@ public class MaestroHomePanel extends JPanel {
         oraInizioBox.setEnabled(stagioneAttiva);
         oraFineBox.setEnabled(stagioneAttiva);
 
-        JLabel hint = new JLabel("Gli orari sono in punto. La disponibilita' viene suddivisa in blocchi da 1 ora.");
+        JLabel hint = new JLabel("La disponibilita' viene suddivisa in blocchi da 1 ora.");
         hint.setFont(UiTheme.body(11, false));
         hint.setForeground(UiTheme.SLATE);
         hint.setAlignmentX(0f);
@@ -155,7 +155,7 @@ public class MaestroHomePanel extends JPanel {
                 Session session = Session.getCurrent();
                 List<Lezione> nuove = controller.aggiungiDisponibilita(session.getUsername(),
                         session.getNomeCompleto(), data, oraInizio, oraFine);
-                UiTheme.mostraSuccesso(this, "Disponibilita' aggiunta: " + nuove.size()
+                UiTheme.mostraSuccesso(this, "Disponibilità aggiunta: " + nuove.size()
                         + " fascia/e da 1 ora create.");
                 refresh();
             } catch (OperazioneException ex) {
@@ -226,7 +226,7 @@ public class MaestroHomePanel extends JPanel {
             rimuovi.addActionListener(e -> {
                 try {
                     controller.rimuoviDisponibilita(l.getId());
-                    UiTheme.mostraSuccesso(this, "Disponibilita' rimossa.");
+                    UiTheme.mostraSuccesso(this, "Disponibilità rimossa.");
                     refresh();
                 } catch (OperazioneException ex) {
                     UiTheme.mostraErrore(this, ex.getMessage());

@@ -86,7 +86,7 @@ public class ParcheggioPanel extends JPanel {
             col.add(javax.swing.Box.createVerticalStrut(10));
             col.add(buildForm(stagioneAttiva));
         } else {
-            JLabel hint = new JLabel("Seleziona una localita' per procedere.");
+            JLabel hint = new JLabel("Seleziona una località per procedere.");
             hint.setForeground(UiTheme.SLATE);
             hint.setAlignmentX(0f);
             col.add(hint);
