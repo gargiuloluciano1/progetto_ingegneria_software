@@ -42,16 +42,11 @@ public class StatistichePanel extends JPanel {
         statsGrid.setAlignmentX(0f);
         statsGrid.setMaximumSize(new Dimension(900, 140));
 
-        JLabel hint = new JLabel("I dati sono aggiornati in tempo reale. Il filtro per periodo e' dimostrativo.");
-        hint.setFont(UiTheme.body(11, false));
-        hint.setForeground(UiTheme.SLATE);
-        hint.setAlignmentX(0f);
-        hint.setBorder(new EmptyBorder(16, 0, 0, 0));
 
         wrapper.add(pillRow);
         wrapper.add(javax.swing.Box.createVerticalStrut(16));
         wrapper.add(statsGrid);
-        wrapper.add(hint);
+
 
         JScrollPane scroll = new JScrollPane(wrapper);
         scroll.setBorder(null);
