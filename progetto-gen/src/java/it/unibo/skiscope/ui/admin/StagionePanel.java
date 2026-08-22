@@ -111,7 +111,7 @@ public class StagionePanel extends JPanel {
         form.add(salva);
 
         JLabel hint = new JLabel("<html><div style='width:400px;'>Fuori da questo intervallo, l'unica "
-                + "operazione consentita ai clienti e' la registrazione.</div></html>");
+                + "operazione consentita ai clienti è la registrazione.</div></html>");
         hint.setFont(UiTheme.body(11, false));
         hint.setForeground(UiTheme.SLATE);
         hint.setAlignmentX(0f);
@@ -183,19 +183,19 @@ public class StagionePanel extends JPanel {
     /** Spiega perche' la stagione risulta (non) attiva, in base alle date reali impostate. */
     private String spiegaStato(Stagione stagione, boolean attiva) {
         if (stagione.getDataInizio() == null || stagione.getDataFine() == null) {
-            return "Nessuna data impostata: la stagione non e' attiva finche' non vengono definite "
+            return "Nessuna data impostata: la stagione non è attiva finchè non vengono definite "
                     + "data di inizio e fine.";
         }
         if (attiva) {
-            return "La data odierna rientra nell'intervallo impostato: tutte le funzionalita' sono "
+            return "La data odierna rientra nell'intervallo impostato: tutte le funzionalità sono "
                     + "disponibili ai clienti.";
         }
         LocalDate oggi = LocalDate.now();
         if (oggi.isBefore(stagione.getDataInizio())) {
-            return "La stagione non e' ancora iniziata: fino alla data di inizio, ai clienti e' "
+            return "La stagione non è ancora iniziata: fino alla data di inizio, ai clienti è "
                     + "consentita solo la registrazione.";
         }
-        return "La stagione e' terminata: dalla data di fine in poi, ai clienti e' consentita solo "
+        return "La stagione è terminata: dalla data di fine in poi, ai clienti è consentita solo "
                 + "la registrazione.";
     }
 }
